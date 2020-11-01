@@ -47,6 +47,14 @@ class BerlinClockTest extends TestCase
 
     }
 
+    public function test_convertToSingleHours_given1Hour_shouldReturn_array_rooo(){
+        $berlinClock = new BerlinClock();
+        $actual = $berlinClock->implementSingleHour(1);
+        $tabExpected = array('r','o','o','o');
+        $this->assertEquals($tabExpected,$actual);
+
+    }
+
 
 
 
