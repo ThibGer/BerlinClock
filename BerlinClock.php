@@ -23,6 +23,15 @@ class BerlinClock
         return $tab;
     }
 
+    public function implementSingleHour(int $hour): array
+    {
+        $tab = array('o','o','o','o');
+        for($i=0;$i<$hour%5;$i++){
+            $tab[$i] = 'r';
+        }
+        return $tab;
+    }
+
 
 
 }
