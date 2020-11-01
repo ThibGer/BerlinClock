@@ -32,6 +32,14 @@ class BerlinClock
         return $tab;
     }
 
+    public function implementBlockOfFiveHours(int $hour): array
+    {
+        $tab = array('o','o','o','o');
+        for($i=1;$i<=$hour/5;$i++){
+                $tab[$i-1] = 'r';
+        }
+        return $tab;
+    }
 
 
 }
