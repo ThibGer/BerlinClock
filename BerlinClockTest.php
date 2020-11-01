@@ -31,6 +31,14 @@ class BerlinClockTest extends TestCase
 
     }
 
+    public function test_convertToBlockOfFiveMinutes_given24Minutes_shouldReturn_array_yyryooooooo(){
+        $berlinClock = new BerlinClock();
+        $actual = $berlinClock->implementBlockOfFiveMin(24);
+        $tabExpected = array('y','y','r', 'y', 'o', 'o', 'o', 'o', 'o', 'o','o');
+        $this->assertEquals($tabExpected,$actual);
+
+    }
+
 
 
 
