@@ -279,6 +279,27 @@ class BerlinClockTest extends TestCase
 
     }
 
+    public function test_convertToBerlinClock_given15H_07NegativeNumberM_02S_shouldReturn_exception(){
+        $berlinClock = new BerlinClock();
+        $time = "15:-7:02";
+
+        $tabSec = array('r');
+        $tabBlock5Hours = array('r','r','r','o');
+        $tabSingleHours = array('o','o','o','o');
+        $tabBlock5Min = array('y','o','o','o','o','o','o','o','o','o','o');
+        $tabSingleMin = array('y','y','o','o');
+
+        $clock = array($tabSec, $tabBlock5Hours, $tabSingleHours, $tabBlock5Min, $tabSingleMin);
+
+        try{
+            $actual = $berlinClock->implementClock($time);
+            $this->assertEquals($clock,$actual);
+        } catch(Exception $e){
+            $this->assertEquals("$time is not available format",$e->getMessage());
+        }
+
+    }
+
 
 
 
