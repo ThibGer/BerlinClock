@@ -152,6 +152,17 @@ class BerlinClockTest extends TestCase
 
     }
 
+    public function test_convertToSeconds_given60Seconds_shouldReturn_exception(){
+        $berlinClock = new BerlinClock();
+        $sec = 60;
+        try{
+            $actual = $berlinClock->implementSeconds($sec);
+        } catch(Exception $e){
+            $this->assertEquals("$sec is not available",$e->getMessage());
+        }
+
+    }
+
 
 
 

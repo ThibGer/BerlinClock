@@ -51,6 +51,9 @@ class BerlinClock
 
     public function implementSeconds(int $sec): string
     {
+        if($sec<0 || $sec>59){
+            throw new Exception("$sec is not available");
+        }
         if ($sec%2==0)
             return 'r';
         return 'o';
