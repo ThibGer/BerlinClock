@@ -23,6 +23,17 @@ class BerlinClockTest extends TestCase
 
     }
 
+    public function test_convertToSingleMinutes_given87Minutes_shouldReturn_exception(){
+        $berlinClock = new BerlinClock();
+        $min = 87;
+        try{
+            $actual = $berlinClock->implementSingleMin($min);
+        } catch(Exception $e){
+            $this->assertEquals("$min is not available",$e->getMessage());
+        }
+
+    }
+
     public function test_convertToBlockOfFiveMinutes_given53Minutes_shouldReturn_array_yyryyryyryo(){
         $berlinClock = new BerlinClock();
         $actual = $berlinClock->implementBlockOfFiveMin(53);
@@ -107,6 +118,7 @@ class BerlinClockTest extends TestCase
         $this->assertEquals('r',$actual);
 
     }
+
 
 
 
