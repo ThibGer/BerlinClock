@@ -94,6 +94,13 @@ class BerlinClockTest extends TestCase
 
     }
 
+    public function test_convertToSeconds_given1Second_shouldReturn_string_o(){
+        $berlinClock = new BerlinClock();
+        $actual = $berlinClock->implementSeconds(1);
+        $this->assertEquals('o',$actual);
+
+    }
+
 
 
 
