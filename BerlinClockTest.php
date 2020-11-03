@@ -195,7 +195,7 @@ class BerlinClockTest extends TestCase
 
     }
 
-    public function test_convertToBerlinClock_given23H07M02S_shouldReturn_array(){
+    public function test_convertToBerlinClock_given23H07M02S_shouldReturn_arrayOfArray_r_rrrr_rrro_yoooooooooo_yyoo(){
         $berlinClock = new BerlinClock();
         $time = "23:07:02";
 
