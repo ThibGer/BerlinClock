@@ -174,7 +174,7 @@ class BerlinClockTest extends TestCase
 
     }
 
-    public function test_convertToBerlinClock_given11H56M45S_shouldReturn_array(){
+    public function test_convertToBerlinClock_given11H56M45S_shouldReturn_arrayOfArray_o_rroo_rooo_yyryyryyryy_yooo(){
         $berlinClock = new BerlinClock();
         $time = "11:56:45";
 
@@ -215,6 +215,8 @@ class BerlinClockTest extends TestCase
         }
 
     }
+
+
 
 
 
