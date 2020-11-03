@@ -258,6 +258,30 @@ class BerlinClockTest extends TestCase
 
     }
 
+    public function test_convertToBerlinClock_given98H07M02S_shouldReturn_exception(){
+        $berlinClock = new BerlinClock();
+        $time = "98:07:02";
+
+        $tabSec = array('r');
+        $tabBlock5Hours = array('r','r','r','r');
+        $tabSingleHours = array('r','r','r','r');
+        $tabBlock5Min = array('y','o','o','o','o','o','o','o','o','o','o');
+        $tabSingleMin = array('y','y','o','o');
+
+        $clock = array($tabSec, $tabBlock5Hours, $tabSingleHours, $tabBlock5Min, $tabSingleMin);
+
+        try{
+            $actual = $berlinClock->implementClock($time);
+            $this->assertEquals($clock,$actual);
+        } catch(Exception $e){
+            $this->assertEquals("98 is not available",$e->getMessage());
+        }
+
+    }
+
+
+
+
 
 
 
