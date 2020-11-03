@@ -59,5 +59,24 @@ class BerlinClock
         return 'o';
     }
 
+    public function implementClock(string $time): array
+    {
+        if(preg_match("/^[0-9]{2}:[0-9]{2}:[0-9]{2}$/", $time) != 1)
+            throw new Exception("$time is not available format");
+
+        $min = intval(substr($time,3,2));
+        $hour = intval(substr($time, 0, 2));
+        $sec = intval(substr($time, 6, 2));
+
+        $tabSec = array($this->implementSeconds($sec));
+        $tabBlock5Hours = $this->implementBlockOfFiveHours($hour);
+        $tabSingleHours = $this->implementSingleHours($hour);
+        $tabBlock5Min = $this->implementBlockOfFiveMin($min);
+        $tabSingleMin = $this->implementSingleMin($min);
+
+        return array($tabSec, $tabBlock5Hours, $tabSingleHours, $tabBlock5Min, $tabSingleMin);
+
+    }
+
 
 }

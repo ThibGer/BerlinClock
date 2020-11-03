@@ -174,6 +174,27 @@ class BerlinClockTest extends TestCase
 
     }
 
+    public function test_convertToBerlinClock_given11H56M45S_shouldReturn_array(){
+        $berlinClock = new BerlinClock();
+        $time = "11:56:45";
+
+        $tabSec = array('o');
+        $tabBlock5Hours = array('r','r','o','o');
+        $tabSingleHours = array('r','o','o','o');
+        $tabBlock5Min = array('y','y','r', 'y', 'y', 'r', 'y', 'y', 'r', 'y','y');
+        $tabSingleMin = array('y','o','o','o');
+
+        $clock = array($tabSec, $tabBlock5Hours, $tabSingleHours, $tabBlock5Min, $tabSingleMin);
+
+        try{
+            $actual = $berlinClock->implementClock($time);
+            $this->assertEquals($clock,$actual);
+        } catch(Exception $e){
+            $this->assertEquals("$time is not available format",$e->getMessage());
+        }
+
+    }
+
 
 
 
