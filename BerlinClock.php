@@ -29,6 +29,8 @@ class BerlinClock
 
     public function implementSingleHour(int $hour): array
     {
+        if ($hour<0 || $hour>23)
+            throw new Exception("$hour is not available");
         $tab = array('o','o','o','o');
         for($i=0;$i<$hour%5;$i++){
             $tab[$i] = 'r';

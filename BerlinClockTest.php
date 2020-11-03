@@ -85,6 +85,17 @@ class BerlinClockTest extends TestCase
 
     }
 
+    public function test_convertToSingleHours_given24Hours_shouldReturn_exception(){
+        $berlinClock = new BerlinClock();
+        $hour = 24;
+        try{
+            $actual = $berlinClock->implementSingleHour($hour);
+        } catch(Exception $e){
+            $this->assertEquals("$hour is not available",$e->getMessage());
+        }
+
+    }
+
     public function test_convertToBlockOfFiveHours_given12Hours_shouldReturn_array_rroo(){
         $berlinClock = new BerlinClock();
         $actual = $berlinClock->implementBlockOfFiveHours(12);
