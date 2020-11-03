@@ -40,6 +40,8 @@ class BerlinClock
 
     public function implementBlockOfFiveHours(int $hour): array
     {
+        if ($hour<0 || $hour>23)
+            throw new Exception("$hour is not available");
         $tab = array('o','o','o','o');
         for($i=1;$i<=$hour/5;$i++){
                 $tab[$i-1] = 'r';

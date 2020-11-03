@@ -120,6 +120,17 @@ class BerlinClockTest extends TestCase
 
     }
 
+    public function test_convertToBlockOfFiveHours_given5NegativeNumberHours_shouldReturn_exception(){
+        $berlinClock = new BerlinClock();
+        $hour = -5;
+        try{
+            $actual = $berlinClock->implementBlockOfFiveHours($hour);
+        } catch(Exception $e){
+            $this->assertEquals("$hour is not available",$e->getMessage());
+        }
+
+    }
+
     public function test_convertToSeconds_given50Seconds_shouldReturn_string_r(){
         $berlinClock = new BerlinClock();
         $actual = $berlinClock->implementSeconds(50);
