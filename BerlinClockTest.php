@@ -181,7 +181,7 @@ class BerlinClockTest extends TestCase
         $tabSec = array('o');
         $tabBlock5Hours = array('r','r','o','o');
         $tabSingleHours = array('r','o','o','o');
-        $tabBlock5Min = array('y','y','r', 'y', 'y', 'r', 'y', 'y', 'r', 'y','y');
+        $tabBlock5Min = array('y','y','r','y','y','r','y','y','r','y','y');
         $tabSingleMin = array('y','o','o','o');
 
         $clock = array($tabSec, $tabBlock5Hours, $tabSingleHours, $tabBlock5Min, $tabSingleMin);
@@ -194,6 +194,29 @@ class BerlinClockTest extends TestCase
         }
 
     }
+
+    public function test_convertToBerlinClock_given23H07M02S_shouldReturn_array(){
+        $berlinClock = new BerlinClock();
+        $time = "23:07:02";
+
+        $tabSec = array('r');
+        $tabBlock5Hours = array('r','r','r','r');
+        $tabSingleHours = array('r','r','r','o');
+        $tabBlock5Min = array('y','o','o','o','o','o','o','o','o','o','o');
+        $tabSingleMin = array('y','y','o','o');
+
+        $clock = array($tabSec, $tabBlock5Hours, $tabSingleHours, $tabBlock5Min, $tabSingleMin);
+
+        try{
+            $actual = $berlinClock->implementClock($time);
+            $this->assertEquals($clock,$actual);
+        } catch(Exception $e){
+            $this->assertEquals("$time is not available format",$e->getMessage());
+        }
+
+    }
+
+
 
 
 
