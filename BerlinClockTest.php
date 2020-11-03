@@ -50,6 +50,17 @@ class BerlinClockTest extends TestCase
 
     }
 
+    public function test_convertToBlockOfFiveMinutes_given3NegativeNumberMinutes_shouldReturn_exception(){
+        $berlinClock = new BerlinClock();
+        $min = -3;
+        try{
+            $actual = $berlinClock->implementBlockOfFiveMin($min);
+        } catch(Exception $e){
+            $this->assertEquals("$min is not available",$e->getMessage());
+        }
+
+    }
+
     public function test_convertToSingleHours_given12Hours_shouldReturn_array_rroo(){
         $berlinClock = new BerlinClock();
         $actual = $berlinClock->implementSingleHour(12);

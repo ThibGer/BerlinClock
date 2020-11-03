@@ -15,6 +15,8 @@ class BerlinClock
 
     public function implementBlockOfFiveMin(int $min): array
     {
+        if ($min<0 || $min>59)
+            throw new Exception("$min is not available");
         $tab = array('o','o','o','o','o','o','o','o','o','o','o');
         for($i=1;$i<=$min/5;$i++){
             if ($i%3==0)
