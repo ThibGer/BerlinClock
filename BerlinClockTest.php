@@ -63,7 +63,7 @@ class BerlinClockTest extends TestCase
 
     public function test_convertToSingleHours_given12Hours_shouldReturn_array_rroo(){
         $berlinClock = new BerlinClock();
-        $actual = $berlinClock->implementSingleHour(12);
+        $actual = $berlinClock->implementSingleHours(12);
         $tabExpected = array('r','r','o','o');
         $this->assertEquals($tabExpected,$actual);
 
@@ -71,7 +71,7 @@ class BerlinClockTest extends TestCase
 
     public function test_convertToSingleHours_given1Hour_shouldReturn_array_rooo(){
         $berlinClock = new BerlinClock();
-        $actual = $berlinClock->implementSingleHour(1);
+        $actual = $berlinClock->implementSingleHours(1);
         $tabExpected = array('r','o','o','o');
         $this->assertEquals($tabExpected,$actual);
 
@@ -79,7 +79,7 @@ class BerlinClockTest extends TestCase
 
     public function test_convertToSingleHours_given0Hour_shouldReturn_array_oooo(){
         $berlinClock = new BerlinClock();
-        $actual = $berlinClock->implementSingleHour(0);
+        $actual = $berlinClock->implementSingleHours(0);
         $tabExpected = array('o','o','o','o');
         $this->assertEquals($tabExpected,$actual);
 
@@ -89,7 +89,7 @@ class BerlinClockTest extends TestCase
         $berlinClock = new BerlinClock();
         $hour = 24;
         try{
-            $actual = $berlinClock->implementSingleHour($hour);
+            $actual = $berlinClock->implementSingleHours($hour);
         } catch(Exception $e){
             $this->assertEquals("$hour is not available",$e->getMessage());
         }
