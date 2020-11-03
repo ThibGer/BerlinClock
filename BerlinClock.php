@@ -41,5 +41,12 @@ class BerlinClock
         return $tab;
     }
 
+    public function implementSeconds(int $sec): string
+    {
+        if ($sec%2==0)
+            return 'r';
+        return 'o';
+    }
+
 
 }

@@ -87,6 +87,12 @@ class BerlinClockTest extends TestCase
 
     }
 
+    public function test_convertToSeconds_given50Seconds_shouldReturn_string_r(){
+        $berlinClock = new BerlinClock();
+        $actual = $berlinClock->implementSeconds(50);
+        $this->assertEquals('r',$actual);
+
+    }
 
 
 
